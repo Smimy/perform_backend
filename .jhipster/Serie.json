@@ -1,0 +1,49 @@
+{
+  "name": "Serie",
+  "fields": [
+    {
+      "fieldName": "number",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repsAchieved",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "percent1RM",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "restingTime",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "exercise",
+      "otherEntityRelationshipName": "serie",
+      "relationshipValidateRules": "required",
+      "relationshipName": "exercise",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210115153737",
+  "entityTableName": "serie",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

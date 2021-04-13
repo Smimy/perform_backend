@@ -1,0 +1,12 @@
+version: '2'
+services:
+  back_end-postgresql:
+    image: postgres:12.3
+    # volumes:
+    #     - ~/volumes/jhipster/back_end/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=back_end
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432

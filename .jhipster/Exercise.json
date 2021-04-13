@@ -1,0 +1,48 @@
+{
+  "name": "Exercise",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "number",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workout",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipValidateRules": "required",
+      "relationshipName": "workout",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "exerciseType",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipValidateRules": "required",
+      "relationshipName": "exerciseType",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210115153537",
+  "entityTableName": "exercise",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

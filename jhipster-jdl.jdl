@@ -1,0 +1,49 @@
+entity WorkoutGoal{
+	name String required
+}
+
+entity Workout{
+	name String required
+    date LocalDate required
+    comment String
+}
+
+entity Exercise{
+	name String required
+    number Integer required //To order exercises
+    comment String
+}
+
+entity ExerciseType{
+	name String required
+    description String
+}
+
+entity Serie{
+	number Integer required //To order series
+    repsAchieved Integer required
+    weight Float required
+    percent1RM Float //Percent of 1 Rep Max
+    restingTime Integer // Seconds
+}
+
+relationship ManyToOne {
+	Workout{WorkoutGoal required} to WorkoutGoal
+    Exercise{Workout required} to Workout
+    Exercise{ExerciseType required} to ExerciseType
+    Serie{Exercise required} to Exercise
+    Workout{User required} to User
+}
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
