@@ -1,6 +1,8 @@
 package fr.perform.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -40,6 +42,7 @@ public class Serie implements Serializable {
     private Integer restingTime;
 
     @ManyToOne(optional = false)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     @JsonIgnoreProperties(value = "series", allowSetters = true)
     private Exercise exercise;

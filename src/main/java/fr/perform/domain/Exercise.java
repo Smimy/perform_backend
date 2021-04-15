@@ -1,6 +1,8 @@
 package fr.perform.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -33,6 +35,7 @@ public class Exercise implements Serializable {
     private String comment;
 
     @ManyToOne(optional = false)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     @JsonIgnoreProperties(value = "exercises", allowSetters = true)
     private Workout workout;
