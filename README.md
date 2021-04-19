@@ -1,10 +1,12 @@
 # Perform Back_End
 
-First, you need NodeJs : https://nodejs.org/ (LTS version recommended)
-At least Java 11 : https://www.microsoft.com/openjdk
-And set JAVA_HOME : https://www.wikihow.com/Set-Java-Home
+First, you need NodeJs, at least Java 11, and set JAVA_HOME : 
 
-Be sure to have NPM installed by using this command :
+https://nodejs.org/ (LTS version recommended)
+https://www.microsoft.com/openjdk
+https://www.wikihow.com/Set-Java-Home
+
+Use this command to install needed dependencies :
 
 ```
 npm install

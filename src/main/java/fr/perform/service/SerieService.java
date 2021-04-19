@@ -42,8 +42,11 @@ public interface SerieService {
     void delete(Long id);
 
     /**
+     * @author Jérémy Schrotzenberger.
+     *
      * Get all series by id of the exercise.
      *
+     * @param exerciseId the id of the exercise.
      * @return the list of entities.
      */
     List<SerieDTO> findAllByExerciseId(Long exerciseId);

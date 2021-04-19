@@ -91,6 +91,8 @@ public class WorkoutResource {
     }
 
     /**
+     * @author Jérémy Schrotzenberger
+     *
      * {@code GET  /workouts/user/{userId}} : get all the workouts for a user.
      *
      * @param userId the id of the user, to retrieve his workouts.
@@ -129,10 +131,12 @@ public class WorkoutResource {
     }
 
     /**
+     * @author Jérémy Schrotzenberger.
+     *
      * {@code GET /wrapperworkouts/workouts/:id} : get the wrapperWorkout from its id.
      *
      * @param id of the Workout
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the wrapperWorkout in body
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the wrapperWorkout in body.
      */
     @GetMapping("/wrapperworkout/workout/{id}")
     public Optional<WrapperWorkout> findById(@PathVariable Long id) {

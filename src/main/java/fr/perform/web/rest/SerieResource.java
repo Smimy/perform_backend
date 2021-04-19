@@ -116,6 +116,8 @@ public class SerieResource {
     }
 
     /**
+     * @author Jérémy Schrotzenberger
+     *
      * {@code GET  /series/exercise/:exerciseId} : get all series by id of the exercise.
      *
      * @param exerciseId the id of the exercise.

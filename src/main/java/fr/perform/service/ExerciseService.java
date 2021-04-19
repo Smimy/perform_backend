@@ -44,6 +44,8 @@ public interface ExerciseService {
 
 
     /**
+     * @author Jérémy Schrotzenberger.
+     *
      * Get the wrapperExercise from id of the Exercise.
      *
      * @param id the id of the workout.
@@ -52,6 +54,8 @@ public interface ExerciseService {
     Optional<WrapperExercise> findWrapperExerciseById(Long id);
 
     /**
+     * @author Jérémy Schrotzenberger.
+     *
      * Get all wrapperExercise.
      *
      * @param workoutId the id of the workout.

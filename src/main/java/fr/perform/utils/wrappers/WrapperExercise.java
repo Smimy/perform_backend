@@ -6,6 +6,9 @@ import fr.perform.service.dto.SerieDTO;
 
 import java.util.List;
 
+/**
+ * @author Jérémy Schrotzenberger
+ */
 public class WrapperExercise {
 
     // Exercise

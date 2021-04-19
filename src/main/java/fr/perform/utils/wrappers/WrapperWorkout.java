@@ -7,6 +7,9 @@ import fr.perform.service.dto.WorkoutGoalDTO;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * @author Jérémy Schrotzenberger
+ */
 public class WrapperWorkout {
 
     // Workout

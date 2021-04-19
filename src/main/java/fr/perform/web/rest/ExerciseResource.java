@@ -117,6 +117,8 @@ public class ExerciseResource {
     }
 
     /**
+     * @author Jérémy Schrotzenberger
+     *
      * {@code GET /wrapperexercises/exercise/:id} : get the wrapperExercise from the id of the Exercise.
      *
      * @param id id of the Exercise
@@ -129,6 +131,8 @@ public class ExerciseResource {
     }
 
     /**
+     * @author Jérémy Schrotzenberger
+     *
      * {@code GET /wrapperexercises/workout/:workoutId} : get all wrapperExercise from the id of the Workout.
      *
      * @param workoutId id of the Workout

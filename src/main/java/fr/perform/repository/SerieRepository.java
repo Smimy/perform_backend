@@ -16,6 +16,12 @@ import java.util.List;
 @Repository
 public interface SerieRepository extends JpaRepository<Serie, Long> {
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param exerciseId the id of the exercise.
+     * @return a list of all series linked to the id of the exercise.
+     */
     @Query("FROM Serie S" +
         " WHERE S.exercise.id = :exerciseId")
     List<Serie> findAllByExerciseId(@Param(value = "exerciseId") Long exerciseId);

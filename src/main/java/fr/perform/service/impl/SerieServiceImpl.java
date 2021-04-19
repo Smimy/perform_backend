@@ -66,6 +66,12 @@ public class SerieServiceImpl implements SerieService {
         serieRepository.deleteById(id);
     }
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param exerciseId the id of the exercise.
+     * @return a list of all series linked to the id of the exercise.
+     */
     @Override
     @Transactional(readOnly = true)
     public List<SerieDTO> findAllByExerciseId(Long exerciseId) {

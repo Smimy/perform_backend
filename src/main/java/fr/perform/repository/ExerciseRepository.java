@@ -15,6 +15,12 @@ import java.util.List;
 @Repository
 public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param workoutId the id of the workout.
+     * @return a list of all exercises linked to the id of the workout.
+     */
     @Query("FROM Exercise E" +
         " WHERE E.workout.id = :workoutId" +
         " ORDER BY E.number")

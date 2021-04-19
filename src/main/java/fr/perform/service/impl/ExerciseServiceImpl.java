@@ -80,6 +80,12 @@ public class ExerciseServiceImpl implements ExerciseService {
         exerciseRepository.deleteById(id);
     }
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param id the id of the exercise.
+     * @return wrapperExercise which contains all series linked to the id of the exercise, if they exist;
+     */
     @Override
     @Transactional(readOnly = true)
     public Optional<WrapperExercise> findWrapperExerciseById(final Long id) {
@@ -94,6 +100,12 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     }
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param workoutId the id of the workout.
+     * @return wrapperExerciseList which contains all exercises and series linked to the id of the workout, if they exist.
+     */
     @Override
     @Transactional(readOnly = true)
     public List<WrapperExercise> findAllWrapperExerciseByWorkoutId(Long workoutId) {

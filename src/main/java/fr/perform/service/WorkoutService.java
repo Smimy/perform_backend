@@ -27,15 +27,6 @@ public interface WorkoutService {
     List<WorkoutDTO> findAll();
 
     /**
-     * Get all the workouts from userId.
-     *
-     * @param userId the id of the user.
-     * @return the list of entities.
-     */
-    List<WorkoutDTO> findByUserId(Long userId);
-
-
-    /**
      * Get the "id" workout.
      *
      * @param id the id of the entity.
@@ -49,6 +40,16 @@ public interface WorkoutService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * Get all the workouts from userId.
+     *
+     * @param userId the id of the user.
+     * @return the list of entities.
+     */
+    List<WorkoutDTO> findByUserId(Long userId);
 
     /**
      * Get the WrapperWorkout by its id
