@@ -87,18 +87,17 @@ public class WorkoutServiceImpl implements WorkoutService {
             .map(workoutMapper::toDto);
     }
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param id the id of the Workout.
+     */
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Workout : {}", id);
         final List<WrapperExercise> wrapperExerciseList = exerciseService.findAllWrapperExerciseByWorkoutId(id);
         if (!wrapperExerciseList.isEmpty()) {
             for (WrapperExercise wrapperExercise : wrapperExerciseList) {
-                final List<SerieDTO> serieDTOList = wrapperExercise.getSerieDTOList();
-                if (!serieDTOList.isEmpty()) {
-                    for (SerieDTO serieDTO : serieDTOList) {
-                        serieService.delete(serieDTO.getId());
-                    }
-                }
                 exerciseService.delete(wrapperExercise.getId());
             }
         }

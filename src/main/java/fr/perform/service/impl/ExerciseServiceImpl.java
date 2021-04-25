@@ -74,9 +74,20 @@ public class ExerciseServiceImpl implements ExerciseService {
             .map(exerciseMapper::toDto);
     }
 
+    /**
+     * @author Jérémy Schrotzenberger.
+     *
+     * @param id the id of the exercise.
+     */
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Exercise : {}", id);
+        final Optional<WrapperExercise> wrapperExercise = findWrapperExerciseById(id);
+        if (wrapperExercise.isPresent()) {
+            for (SerieDTO serieDTO : wrapperExercise.get().getSerieDTOList()) {
+                serieService.delete(serieDTO.getId());
+            }
+        }
         exerciseRepository.deleteById(id);
     }
 
@@ -94,10 +105,7 @@ public class ExerciseServiceImpl implements ExerciseService {
         final ExerciseTypeDTO exerciseTypeDTO = exerciseTypeService.findOne(exerciseDTO.getExerciseTypeId()).get();
         final List<SerieDTO> serieDTOList = serieService.findAllByExerciseId(id);
 
-        final Optional<WrapperExercise> wrapperExercise = Optional
-            .of(new WrapperExercise(exerciseDTO, exerciseTypeDTO, serieDTOList));
-        return wrapperExercise.isPresent() ? Optional.of(wrapperExercise.get()) : Optional.empty();
-
+        return Optional.of(new WrapperExercise(exerciseDTO, exerciseTypeDTO, serieDTOList));
     }
 
     /**
@@ -114,9 +122,7 @@ public class ExerciseServiceImpl implements ExerciseService {
         final List<ExerciseDTO> exerciseDTOList = exerciseMapper.toDto(exerciseRepository.findAllExercisesByWorkoutId(workoutId));
         for(ExerciseDTO exerciseDTO : exerciseDTOList) {
             WrapperExercise wrapperExercise = findWrapperExerciseById(exerciseDTO.getId()).get();
-            if (wrapperExercise != null) {
-                wrapperExerciseList.add(wrapperExercise);
-            }
+            wrapperExerciseList.add(wrapperExercise);
         }
         return wrapperExerciseList;
     }

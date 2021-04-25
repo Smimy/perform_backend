@@ -91,20 +91,6 @@ public class WorkoutResource {
     }
 
     /**
-     * @author Jérémy Schrotzenberger
-     *
-     * {@code GET  /workouts/user/{userId}} : get all the workouts for a user.
-     *
-     * @param userId the id of the user, to retrieve his workouts.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of workouts in body.
-     */
-    @GetMapping("/workouts/user/{userId}")
-    public List<WorkoutDTO> findByUserId(@PathVariable Long userId) {
-        log.debug("REST request to get all Workouts");
-        return workoutService.findByUserId(userId);
-    }
-
-    /**
      * {@code GET  /workouts/:id} : get the "id" workout.
      *
      * @param id the id of the workoutDTO to retrieve.
@@ -128,6 +114,20 @@ public class WorkoutResource {
         log.debug("REST request to delete Workout : {}", id);
         workoutService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+    }
+
+    /**
+     * @author Jérémy Schrotzenberger
+     *
+     * {@code GET  /workouts/user/{userId}} : get all the workouts for a user.
+     *
+     * @param userId the id of the user, to retrieve his workouts.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of workouts in body.
+     */
+    @GetMapping("/workouts/user/{userId}")
+    public List<WorkoutDTO> findByUserId(@PathVariable Long userId) {
+        log.debug("REST request to get all Workouts");
+        return workoutService.findByUserId(userId);
     }
 
     /**
